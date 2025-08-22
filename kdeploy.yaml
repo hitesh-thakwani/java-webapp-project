@@ -1,34 +1,34 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: loksai-eta-deploy
+  name: hitesh-k8s-deploy
   labels:
-    app: loksai-eta-deploy-lbl
+    app: hitesh-k8s-deploy-lbl
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: loksai-eta-app
+      app: hitesh-k8s-app
   template:
     metadata:
       labels:
-        app: loksai-eta-app
+        app: hitesh-k8s-app
     spec:
       containers:
-      - name: loksai-eta-container
-        image: loksaieta/pl-javawebappimg
+      - name: hitesh-k8s-container
+        image: 11054352/pl-javawebappimg
         ports:
         - containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: loksai-eta-np-service
+  name: hitesh-k8s-np-service
   labels:
-    app: loksai-eta-app
+    app: hitesh-k8s-app
 spec:
   selector:
-    app: loksai-eta-deploy-lbl
+    app: hitesh-k8s-deploy-lbl
 
   type: NodePort
   ports:
